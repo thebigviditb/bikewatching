@@ -1,0 +1,80 @@
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+header h1 {
+  margin: 0.4em 0;
+}
+
+header label {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+header input[type="range"] {
+  width: 16em;
+}
+
+header time,
+header em {
+  display: block;
+  min-width: 5.5em;
+}
+
+header time:empty {
+  display: none;
+}
+
+header em {
+  color: #888;
+  font-style: italic;
+}
+
+.description {
+  margin: 0 0 1em;
+  color: #555;
+}
+
+#map circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1em;
+}
+
+.legend > div {
+  flex: 1;
+  padding: 0.4em 1em;
+  background: var(--color);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+.legend > div:first-child { text-align: left; border-radius: 6px 0 0 6px; }
+.legend > div:last-child { text-align: right; border-radius: 0 6px 6px 0; }
